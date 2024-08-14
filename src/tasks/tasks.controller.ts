@@ -13,7 +13,7 @@ export class TasksController {
 
     @Post()
     createTask(@Body() newTask: CreateTaskDto){
-       return this.taskService.createTask(newTask.title, newTask.description);
+       return this.taskService.createTask(newTask.title, newTask.description, newTask.status);
     }
 
     @Delete(':id')

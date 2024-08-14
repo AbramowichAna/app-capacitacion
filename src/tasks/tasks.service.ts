@@ -1,5 +1,5 @@
 import {Injectable} from '@nestjs/common';
-import {Task, TaskStatus} from "./task.entity";
+import {Task} from "./task.entity";
 import {v4} from "uuid"
 import {Repository} from "typeorm";
 import {InjectRepository} from "@nestjs/typeorm";
@@ -15,12 +15,12 @@ export class TasksService {
         return this.taskRepository.find()
     }
 
-    createTask(title: string, description: string) {
+    createTask(title: string, description: string, status: string) {
         const task = {
             id: v4(),
             title,
             description,
-            status: TaskStatus.PENDING
+            status
         }
         this.taskRepository.save(task)
         return task;

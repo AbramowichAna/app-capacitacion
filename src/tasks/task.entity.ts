@@ -1,10 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
-export enum TaskStatus {
-    PENDING = "PENDING",
-    IN_PROGRESS = "IN_PROGRESS",
-    DONE = "DONE"
-}
 
 @Entity()
 export class Task {
@@ -18,5 +13,5 @@ export class Task {
     description: string;
 
     @Column()
-    status: TaskStatus;
+    status: string;
 }
