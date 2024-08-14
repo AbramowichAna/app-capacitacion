@@ -42,16 +42,28 @@ const TaskList: React.FC<TaskListProps> = ({ onEdit }) => {
                     <div className="pb-20">
                         <div className="flex justify-between">
                             <h3 className="text-xl font-semibold mb-2">{task.title}</h3>
-                            <span
-                                className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Pending</span>
-                            <span
-                                className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">In progress</span>
-                            <span
-                                className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Done</span>
+                            {task.status === 'Pending' && (
+                                <span
+                                    className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                                    Pending
+                                </span>
+                            )}
+                            {task.status === 'In progress' && (
+                                <span
+                                    className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                                    In progress
+                                </span>
+                            )}
+                            {task.status === 'Completed' && (
+                                <span
+                                    className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                                    Completed
+                                </span>
+                            )}
                         </div>
                         <p className="text-sm text-gray-600">{task.description}</p>
                     </div>
-                    <div className="absolute bottom-0 left-0 w-full bg-gray-50 flex justify-end p-4 space-x-4">
+                    <div className="absolute bottom-0 left-0 w-full bg-gray-50 flex justify-end p-4 space-x-4 rounded-b-lg">
                         <button
                             onClick={() => handleDelete(task.id)}
                             className="px-3 py-0.5 bg-red-400 text-white rounded-md shadow-sm hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"

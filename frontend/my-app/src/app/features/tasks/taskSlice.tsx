@@ -5,6 +5,7 @@ interface Task {
     id: string;
     title: string;
     description: string;
+    status: string;
 }
 
 interface TaskState {
@@ -29,11 +30,12 @@ export const taskSlice = createSlice({
             }
         },
         editTask: (state, action: PayloadAction<Task>) => {
-            const {id, title, description} = action.payload;
+            const {id, title, description, status} = action.payload;
             const task = state.tasks.find(task => task.id === id)
             if (task) {
                 task.title = title;
                 task.description = description;
+                task.status = status;
             }
         }, setTasks: (state, action: PayloadAction<Task[]>) => {
             state.tasks = action.payload;

@@ -7,8 +7,6 @@ import {Task} from "./TaskFrom.tsx";
 import TaskForm from "./TaskFrom.tsx";
 import axios from "axios";
 import {setTasks} from "../app/features/tasks/taskSlice.tsx";
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import {Button} from "@mui/material";
 
 const Home = () => {
